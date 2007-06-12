@@ -69,17 +69,6 @@
     <xsl:processing-instruction name="xml-stylesheet">
       <xsl:text>type="text/xsl" href="/transform/build-output.xsl"</xsl:text>
     </xsl:processing-instruction>
-    <!-- <html>
-      <head>
-        <title>foo</title>
-      </head>
-      <body>
-        <xsl:value-of select="func:get-current-dateTime()"/>
-        
-        <xsl:value-of 
-            select="func:s3-create-bucket('0W1JTSGF9K6C4CNX59R2', 'vN5kRNqM680FSu+9T5ii8oY7teitZlNVxNJ84MS4', $issecure, 'sonicradar.hellothere') cast as xs:string"/>
-       </body>
-    </html>-->
   </xsl:template>
 
   <xsl:template match="atom:link[@type = 'text/css']">
