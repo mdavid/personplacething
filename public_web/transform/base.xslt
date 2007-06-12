@@ -11,22 +11,22 @@
     xmlns:session="http://xameleon.org/service/session"
     xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="atom xs omx xsi fn">
 
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/atomicxml.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/s3.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/semweb.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/funcset-dateTime.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/amazonaws/funcset-s3.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/session.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/server.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/request-stream.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/response-stream.xslt"/>
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/timestamp.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/atomicxml.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/s3.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/semweb.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/funcset-dateTime.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/amazonaws/funcset-s3.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/aspnet/session.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/aspnet/server.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/aspnet/request-stream.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/aspnet/response-stream.xslt"/>
+  <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/functions/aspnet/timestamp.xslt"/>
   <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/aspnet/funcset-Util.xslt"/>
 
   <xsl:param name="xml.base" select="/atom:feed/@xml:base" as="xs:string" />
   <xsl:param name="google.maps.key" as="xs:string" />
   <xsl:param name="request.ip" as="xs:string" />
-  <xsl:param name="return_uri" select="'http://sonicradar.com/'" as="xs:string" />
+  <xsl:param name="return_uri" as="xs:string" />
 
   <xsl:variable name="css-base-class" select="'base'" as="xs:string"/>
 
@@ -56,7 +56,6 @@
   <xsl:output method="xml" indent="yes" escape-uri-attributes="no" encoding="iso-8859-1"/>
 
   <xsl:template match="/">
-    
   <!-- 
   <xsl:value-of
     select="file:SaveExternalFile('http://s3.amazonaws.com/m.david/xslt/eveel_plan/XSLnT.png', '/srv/wwwroot/sonicradar.com/foo.png')" 

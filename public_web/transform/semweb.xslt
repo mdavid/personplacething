@@ -26,8 +26,6 @@
     xmlns:clitype="http://saxon.sf.net/clitype"
     exclude-result-prefixes="at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header param service operation session semweb func xs xsi fn clitype response-collection request-collection xameleon-semweb">
 
-  <xsl:import href="file:///srv/wwwroot/sonicradar.com/transform/functions/amazonaws/funcset-s3.xslt"/>
-
   <xsl:param name="response" />
   <xsl:param name="request"/>
   <xsl:param name="server"/>
@@ -45,7 +43,7 @@
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
     <xsl:variable name="content-type" select="
       if ($debug) 
-      then aspnet:response.set-content-type($response, 'text/html') 
+      then aspnet:response.set-content-type($response, 'text/plain') 
       else aspnet:response.set-content-type($response, 'text/xml')"/>
     <message type="service:result" content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
       <xsl:apply-templates/>
