@@ -69,7 +69,7 @@
 
   <xsl:template match="semweb:process">
     <xsl:param name="uri"/>
-    <xsl:sequence select="xameleon-semweb:Process($response, $uri)"/>
+    <xsl:value-of select="xameleon-semweb:Process($uri)" disable-output-escaping="yes"/>
   </xsl:template>
 
 </xsl:transform>
