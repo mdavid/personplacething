@@ -69,7 +69,7 @@
       <xsl:value-of select="func:resolve-variable(@uri)"/>
     </uri>
     <filtered-doc>
-      <xsl:copy-of select="document(func:resolve-variable(@uri))//*[@*:id = $id]"/>
+      <xsl:copy-of select="document(func:resolve-variable(@uri))//*[@* = $id]"/>
     </filtered-doc>
     <complete-doc>
       <xsl:copy-of select="document(func:resolve-variable(@uri))/*"/>
