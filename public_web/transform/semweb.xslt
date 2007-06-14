@@ -25,7 +25,8 @@
     xmlns:metadata="http://xameleon.org/service/metadata"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:clitype="http://saxon.sf.net/clitype"
-    exclude-result-prefixes="at aspnet aspnet-timestamp aspnet-server aspnet-session aspnet-request aspnet-response saxon metadata header param service operation session semweb func xs xsi fn clitype response-collection request-collection xameleon-semweb">
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    exclude-result-prefixes="at aspnet aspnet-timestamp aspnet-server proxy rdf aspnet-session aspnet-request aspnet-response saxon metadata header param service operation session semweb func xs xsi fn clitype response-collection request-collection xameleon-semweb">
 
   <xsl:param name="response" />
   <xsl:param name="request"/>
@@ -62,14 +63,19 @@
       </xsl:processing-instruction>
     </xsl:if>
     <xsl:variable name="id" select="request-collection:GetValue($request, 'query-string', 'return-doc-id')"/>
+    <xsl:variable name="uri" select="func:resolve-variable(@uri)"/>
+    <xsl:variable name="reference" select="concat($uri, '#', $id)"/>
     <id>
       <xsl:value-of select="$id"/>
     </id>
     <uri>
-      <xsl:value-of select="func:resolve-variable(@uri)"/>
+      <xsl:value-of select="$uri"/>
     </uri>
+    <reference>
+      <xsl:value-of select="$reference"/>
+    </reference>
     <filtered-doc>
-      <xsl:copy-of select="document(func:resolve-variable(@uri))//*[@* = $id]"/>
+      <xsl:copy-of select="document(func:resolve-variable(@uri))//*[@rdf:about = $reference]"/>
     </filtered-doc>
     <complete-doc>
       <xsl:copy-of select="document(func:resolve-variable(@uri))/*"/>
