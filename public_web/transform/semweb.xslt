@@ -16,6 +16,7 @@
     xmlns:response-collection="clitype:Xameleon.Function.HttpResponseCollection?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
     xmlns:xameleon-semweb="clitype:Xameleon.SemWeb.Select?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
     xmlns:semweb="http://xameleon.org/service/semweb"
+    xmlns:proxy="http://xameleon.org/service/proxy"
     xmlns:service="http://xameleon.org/service"
     xmlns:operation="http://xameleon.org/service/operation"
     xmlns:session="http://xameleon.org/service/session"
@@ -35,16 +36,14 @@
       select=" if (request-collection:GetValue($request, 'query-string', 'debug') = 'true') then true() else false()"
       as="xs:boolean" />
   <xsl:variable name="session-params" select="/service:operation/param:*"/>
+  <xsl:variable name="q">"</xsl:variable>
 
   <xsl:strip-space elements="*"/>
 
   <xsl:template match="service:operation">
     <xsl:param name="key-name"/>
     <xsl:variable name="issecure" select="false()" as="xs:boolean"/>
-    <xsl:variable name="content-type" select="
-      if ($debug) 
-      then aspnet:response.set-content-type($response, 'text/plain') 
-      else aspnet:response.set-content-type($response, 'text/xml')"/>
+    <xsl:variable name="content-type" select=" if ($debug) then aspnet:response.set-content-type($response, 'text/plain') else aspnet:response.set-content-type($response, 'text/xml')"/>
     <message type="service:result" content-type="{if (empty($content-type)) then aspnet:response.get-content-type($response) else 'not-set'}">
       <xsl:apply-templates/>
     </message>
@@ -54,6 +53,27 @@
     <operation type="{local-name()}">
       <xsl:apply-templates />
     </operation>
+  </xsl:template>
+
+  <xsl:template match="proxy:return-rdf-id">
+    <xsl:if test="@use-xsl-pi">
+      <xsl:processing-instruction name="xml-stylesheet">
+        <xsl:value-of select="concat('type=', $q, 'text/xsl', $q, ' href=', $q, @use-xsl-pi, $q)"/>
+      </xsl:processing-instruction>
+    </xsl:if>
+    <xsl:variable name="id" select="request-collection:GetValue($request, 'query-string', 'return-doc-id')"/>
+    <id>
+      <xsl:value-of select="$id"/>
+    </id>
+    <uri>
+      <xsl:value-of select="func:resolve-variable(@uri)"/>
+    </uri>
+    <filtered-doc>
+      <xsl:copy-of select="document(func:resolve-variable(@uri))//*[@*:id = $id]"/>
+    </filtered-doc>
+    <complete-doc>
+      <xsl:copy-of select="document(func:resolve-variable(@uri))/*"/>
+    </complete-doc>
   </xsl:template>
 
   <xsl:template match="semweb:select">
