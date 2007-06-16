@@ -7,6 +7,7 @@
     xmlns:at="http://atomictalk.org"
     xmlns:func="http://atomictalk.org/function"
     xmlns:aspnet="http://atomictalk.org/function/aspnet"
+    xmlns:uri="clitype:System.Uri?from=file:///usr/lib/mono/2.0/System.dll"
     xmlns:aspnet-session="clitype:System.Web.SessionState.HttpSessionState?from=file:///usr/lib/mono/2.0/System.Web.dll"
     xmlns:aspnet-server="clitype:System.Web.HttpServerUtility?from=file:///usr/lib/mono/2.0/System.Web.dll"
     xmlns:aspnet-request="clitype:System.Web.HttpRequest?from=file:///usr/lib/mono/2.0/System.Web.dll"
@@ -17,6 +18,7 @@
     xmlns:xameleon-semweb="clitype:Xameleon.SemWeb.Select?from=file:///srv/wwwroot/webapp/bin/Xameleon.dll"
     xmlns:semweb="http://xameleon.org/service/semweb"
     xmlns:proxy="http://xameleon.org/service/proxy"
+    xmlns:redirect="http://xameleon.org/service/redirect"
     xmlns:service="http://xameleon.org/service"
     xmlns:operation="http://xameleon.org/service/operation"
     xmlns:session="http://xameleon.org/service/session"
@@ -37,6 +39,7 @@
       select=" if (request-collection:GetValue($request, 'query-string', 'debug') = 'true') then true() else false()"
       as="xs:boolean" />
   <xsl:variable name="session-params" select="/service:operation/param:*"/>
+  <xsl:variable name="request-uri" select="aspnet-request:Url($request)"/>
   <xsl:variable name="q">"</xsl:variable>
 
   <xsl:strip-space elements="*"/>
@@ -80,6 +83,15 @@
     <complete-doc>
       <xsl:copy-of select="document(func:resolve-variable(@uri))/*"/>
     </complete-doc>
+  </xsl:template>
+
+  <xsl:template match="redirect:location">
+    <xsl:variable name="uri" select="func:resolve-variable(@uri)"/>
+    <xsl:variable name="status-code" select="func:resolve-variable(@status-code)"/>
+    <result>
+      <xsl:sequence select="aspnet-response:AddHeader($response, 'Location', $uri)"/>
+      <xsl:sequence select="aspnet:response.set-status-code($response, $status-code cast as xs:integer)"/>
+    </result>
   </xsl:template>
 
   <xsl:template match="semweb:select">
