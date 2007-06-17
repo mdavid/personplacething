@@ -13,4 +13,19 @@
     <xsl:value-of select="request-stream:ContentType($request)"/>
   </xsl:function>
   
+  <xsl:function name="func:request.get-raw-url">
+    <xsl:param name="request"/>
+    <xsl:value-of select="request-stream:RawUrl($request)"/>
+  </xsl:function>
+  
+  <xsl:function name="func:request.get-path-info">
+    <xsl:param name="request"/>
+    <xsl:value-of select="request-stream:PathInfo($request)"/>
+  </xsl:function>
+  
+  <xsl:function name="func:request.get-path">
+    <xsl:param name="request"/>
+    <xsl:value-of select="request-stream:Path($request)"/>
+  </xsl:function>
+  
 </xsl:transform>

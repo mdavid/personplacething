@@ -28,7 +28,7 @@
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:clitype="http://saxon.sf.net/clitype"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    exclude-result-prefixes="at aspnet aspnet-timestamp aspnet-server proxy rdf aspnet-session aspnet-request aspnet-response saxon metadata header param service operation session semweb func xs xsi fn clitype response-collection request-collection xameleon-semweb">
+    exclude-result-prefixes="redirect uri at aspnet aspnet-timestamp aspnet-server proxy rdf aspnet-session aspnet-request aspnet-response saxon metadata header param service operation session semweb func xs xsi fn clitype response-collection request-collection xameleon-semweb">
 
   <xsl:param name="response" />
   <xsl:param name="request"/>
@@ -107,7 +107,7 @@
 
   <xsl:template match="semweb:process">
     <xsl:param name="uri"/>
-    <xsl:value-of select="xameleon-semweb:Process($uri)" disable-output-escaping="yes"/>
+    <xsl:sequence select="xameleon-semweb:Process($uri)" />
   </xsl:template>
 
 </xsl:transform>

@@ -9,7 +9,7 @@
     xmlns:sortedlist="clitype:System.Collections.SortedList?from=file:///usr/lib/mono/2.0/mscorlib.dll"
     xmlns:s3response="clitype:Extf.Net.S3.Response?from=file:///srv/wwwroot/webapp/bin/Extf.Net.dll"
     xmlns:session="http://xameleon.org/service/session"
-    xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="atom xs omx xsi fn">
+    xmlns:clitype="http://saxon.sf.net/clitype" exclude-result-prefixes="atom xs omx xsi fn s3 s3response sortedlist session clitype">
 
   <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/atomicxml.xslt"/>
   <xsl:import href="file:///srv/wwwroot/personplacething.info/public_web/transform/s3.xslt"/>
@@ -44,16 +44,22 @@
   <xsl:variable name="author" select="/atom:feed/atom:author/atom:name"/>
 
   <xsl:strip-space elements="*"/>
+  
+  <xsl:character-map name="xml">
+    <xsl:output-character character="&lt;" string="&lt;"/>
+    <xsl:output-character character="&gt;" string="&gt;"/>
+    <xsl:output-character character="&amp;" string='&amp;'/>
+  </xsl:character-map>
 
-  <!-- <xsl:output name="xhtml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
+  <xsl:output name="xhtml" doctype-public="-//W3C//DTD XHTML 1.1//EN"
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1.1.dtd" include-content-type="yes"
       indent="yes" media-type="text/html" method="xhtml" />
 
   <xsl:output name="html" doctype-system="-//W3C//DTD HTML 4.01//EN"
       doctype-public="http://www.w3.org/TR/html4/strict.dtd" method="html"
-      cdata-section-elements="script" indent="no" media-type="html" /> -->
+      cdata-section-elements="script" indent="no" media-type="html" />
 
-  <xsl:output method="xml" indent="yes" escape-uri-attributes="no" encoding="iso-8859-1"/>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" use-character-maps="xml"/>
 
   <xsl:template match="/">
   <!-- 

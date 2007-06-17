@@ -42,6 +42,34 @@
     <xsl:sequence select="response-stream:set_ContentType($response, $content-type)"/>
   </xsl:function>
 
+  <xsl:function name="aspnet:response.get-status-code">
+    <xsl:param name="response"/>
+    <xsl:sequence select="response-stream:StatusCode($response)"/>
+  </xsl:function>
+
+  <xsl:function name="aspnet:response.set-status-code">
+    <xsl:param name="response"/>
+    <xsl:param name="status-code" as="xs:integer"/>
+    <xsl:sequence select="response-stream:set_StatusCode($response, $status-code)"/>
+  </xsl:function>
+  
+  <xsl:function name="aspnet:response.set-redirect">
+    <xsl:param name="response"/>
+    <xsl:param name="location" as="xs:string"/>
+    <xsl:sequence select="response-stream:Redirect($response, $location)"/>
+  </xsl:function>
+
+  <xsl:function name="aspnet:response.get-redirect-location">
+    <xsl:param name="response"/>
+    <xsl:sequence select="response-stream:RedirectLocation($response)"/>
+  </xsl:function>
+
+  <xsl:function name="aspnet:response.set-redirect-location">
+    <xsl:param name="response"/>
+    <xsl:param name="location" as="xs:string"/>
+    <xsl:sequence select="response-stream:set_RedirectLocation($response, $location)"/>
+  </xsl:function>
+
   <xsl:function name="aspnet:response.get-charset">
     <xsl:param name="response"/>
     <xsl:sequence select="response-stream:Charset($response)"/>

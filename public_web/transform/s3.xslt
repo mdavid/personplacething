@@ -45,7 +45,7 @@
   <xsl:strip-space elements="*"/>
 
   <xsl:template match="header:*">
-    <xsl:param name="sorted-list" as="clitype:System.Collections.SortedList"/>
+    <xsl:param name="sorted-list"/>
     <xsl:variable name="key" select="local-name() cast as xs:untypedAtomic"/>
     <xsl:variable name="value" select=". cast as xs:untypedAtomic"/>
     <xsl:value-of select="sortedlist:Add($sorted-list, $key, $value)"/>
