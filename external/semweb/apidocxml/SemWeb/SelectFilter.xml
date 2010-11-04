@@ -1,0 +1,323 @@
+<Type Name="SelectFilter" FullName="SemWeb.SelectFilter">
+  <TypeSignature Language="C#" Value="public struct SelectFilter : System.Collections.IEnumerable" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.IEnumerable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>This structure provides the arguments to the more powerful Select overload.</summary>
+    <remarks>For examples, see <see cref="M:SemWeb.SelectableSource.Select(SemWeb.SelectFilter,SemWeb.StatementSink)" />.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SelectFilter (SemWeb.Statement statement);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="statement" Type="SemWeb.Statement" />
+      </Parameters>
+      <Docs>
+        <param name="statement">The statement template to select for.</param>
+        <summary>Creates a new SelectFilter which selects for statements matching the template.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SelectFilter (SemWeb.Entity[] subjects, SemWeb.Entity[] predicates, SemWeb.Resource[] objects, SemWeb.Entity[] metas);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="subjects" Type="SemWeb.Entity[]" />
+        <Parameter Name="predicates" Type="SemWeb.Entity[]" />
+        <Parameter Name="objects" Type="SemWeb.Resource[]" />
+        <Parameter Name="metas" Type="SemWeb.Entity[]" />
+      </Parameters>
+      <Docs>
+        <param name="subjects">
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</param>
+        <param name="predicates">
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</param>
+        <param name="objects">
+          <see langword="null" /> to match any resource, or an array of resources any of which match the filter.</param>
+        <param name="metas">
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</param>
+        <summary>Creates a SelectFilter to select for matching statements.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="All">
+      <MemberSignature Language="C#" Value="public static SemWeb.SelectFilter All;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.SelectFilter</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A SelectFilter than selects for all statements.</summary>
+        <remarks>This is equivalent to <see cref="F:SemWeb.Statement.All" />.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object other);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromGraph">
+      <MemberSignature Language="C#" Value="public static SemWeb.SelectFilter[] FromGraph (SemWeb.Statement[] graph);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.SelectFilter[]</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="graph" Type="SemWeb.Statement[]" />
+      </Parameters>
+      <Docs>
+        <param name="graph">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="GetEnumerator">
+      <MemberSignature Language="C#" Value="public System.Collections.IEnumerator GetEnumerator ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerator</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <ImplementsInterfaceMethods>
+        <InterfaceImpl Type="System.Collections.IEnumerable" Member="GetEnumerator" cref="M:System.Collections.IEnumerable.GetEnumerator" />
+      </ImplementsInterfaceMethods>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Limit">
+      <MemberSignature Language="C#" Value="public int Limit;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Maximum number of statements to return.</summary>
+        <remarks>Stores are free to ignore the limit provided.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="LiteralFilters">
+      <MemberSignature Language="C#" Value="public SemWeb.LiteralFilter[] LiteralFilters;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.LiteralFilter[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>An array of filters that the object value of statements must match.</summary>
+        <remarks>An array of filters that the object value of any matching statements must match.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Metas">
+      <MemberSignature Language="C#" Value="public SemWeb.Entity[] Metas;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Entity[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The filter for the meta value of statements.</summary>
+        <remarks>
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Objects">
+      <MemberSignature Language="C#" Value="public SemWeb.Resource[] Objects;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Resource[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The filter for the object value of statements.</summary>
+        <remarks>
+          <see langword="null" /> to match any resource, or an array of resources any of which match the filter.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (SemWeb.SelectFilter a, SemWeb.SelectFilter b);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="SemWeb.SelectFilter" />
+        <Parameter Name="b" Type="SemWeb.SelectFilter" />
+      </Parameters>
+      <Docs>
+        <param name="a">A SelectFilter.</param>
+        <param name="b">A SelectFilter.</param>
+        <summary>Tests two SelectFilters for equality.</summary>
+        <returns>True if the two SelectFilters have equivalent values for all fields.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (SemWeb.SelectFilter a, SemWeb.SelectFilter b);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="SemWeb.SelectFilter" />
+        <Parameter Name="b" Type="SemWeb.SelectFilter" />
+      </Parameters>
+      <Docs>
+        <param name="a">A SelectFilter.</param>
+        <param name="b">A SelectFilter.</param>
+        <summary>Tests two SelectFilters for inequality.</summary>
+        <returns>False if the two SelectFilters have equivalent values for all fields.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Predicates">
+      <MemberSignature Language="C#" Value="public SemWeb.Entity[] Predicates;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Entity[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The filter for the predicate value of statements.</summary>
+        <remarks>
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Subjects">
+      <MemberSignature Language="C#" Value="public SemWeb.Entity[] Subjects;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Entity[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The filter for the subject value of statements.</summary>
+        <remarks>
+          <see langword="null" /> to match any entity, or an array of entities any of which match the filter.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

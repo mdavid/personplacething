@@ -1,0 +1,264 @@
+<Type Name="RdfWriter" FullName="SemWeb.RdfWriter">
+  <TypeSignature Language="C#" Value="public abstract class RdfWriter : IDisposable, SemWeb.StatementSink" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>SemWeb.StatementSink</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>The base class of types that write statements to a stream.</summary>
+    <remarks>
+      <para>This is an abstract class.  Two subclasses are provided: <see cref="T:SemWeb.N3Writer" /> and <see cref="T:SemWeb.RdfXmlWriter" />.</para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected RdfWriter ();" />
+      <MemberType>Constructor</MemberType>
+      <Parameters />
+      <Docs>
+        <summary>The protected no-arg constructor used by derived classes.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public abstract void Add (SemWeb.Statement statement);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="statement" Type="SemWeb.Statement" />
+      </Parameters>
+      <Docs>
+        <param name="statement">The statement to write.</param>
+        <summary>Writes a statement to the stream.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="BaseUri">
+      <MemberSignature Language="C#" Value="public string BaseUri { set; get; }" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the base URI for the output document.</summary>
+        <value>A string containing the base URI of the output document, or <see langword="null" /> if the output document base URI is unknown or not applicable.</value>
+        <remarks>A writer may choose to abbreviate URIs in the output according to the base URI.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public virtual void Close ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Completes writing the data and closes the stream.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static SemWeb.RdfWriter Create (string type, System.IO.TextWriter output);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.RdfWriter</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+        <Parameter Name="output" Type="System.IO.TextWriter" />
+      </Parameters>
+      <Docs>
+        <param name="type">The type of the writer to create. See below for possible values.</param>
+        <param name="output">A TextWriter to output to.</param>
+        <summary>Creates a new RdfWriter whose type is specified by a string constant.</summary>
+        <returns>A new RdfWriter.</returns>
+        <remarks>The possible values for <paramref name="type" /> are:
+          <list type="table"><listheader><term><paramref name="type" /></term><description>Reader</description></listheader><item><term>"xml", "text/xml", "application/xml", "application/rdf+xml"</term><description><see cref="T:SemWeb.RdfXmlWriter" /></description></item><item><term>"n3", "text/n3", "text/rdf+n3", "application/n3"</term><description><see cref="T:SemWeb.N3Writer" /></description></item><item><term>"turtle", "text/turtle", "application/turtle", "application/x-turtle"</term><description><see cref="T:SemWeb.N3Writer" /> configured for Turtle output</description></item><item><term>"nt", "ntriples"</term><description><see cref="T:SemWeb.N3Writer" /> configured for NTriples output</description></item><item><term>"dot"</term><description><see cref="T:SemWeb.IO.GraphVizWriter" /></description></item></list></remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:SemWeb.RdfWriter.Create(System.String,System.IO.TextWriter)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Create">
+      <MemberSignature Language="C#" Value="public static SemWeb.RdfWriter Create (string type, string file);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.RdfWriter</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="type" Type="System.String" />
+        <Parameter Name="file" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="type">The type of the writer to create. See below for possible values.</param>
+        <param name="file">The name of a file to output to, or "-" to output to Standard Output.</param>
+        <summary>Creates a new RdfWriter whose type is specified by a string constant.</summary>
+        <returns>A new RdfWriter.</returns>
+        <remarks>The possible values for <paramref name="type" /> are listed in the Remarks section of <see cref="M:SemWeb.RdfWriter.Create(System.String,System.IO.TextWriter)" /></remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:SemWeb.RdfWriter.Create(System.String,System.String)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="GetResourceKey">
+      <MemberSignature Language="C#" Value="protected object GetResourceKey (SemWeb.Resource resource);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="SemWeb.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">A resource.</param>
+        <summary>See <see cref="M:SemWeb.Store.GetResourceKey(SemWeb.Resource)" />.</summary>
+        <returns>A resource key associated with the resource and this writer.</returns>
+        <remarks>See <see cref="M:SemWeb.Store.GetResourceKey(SemWeb.Resource)" />.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Namespaces">
+      <MemberSignature Language="C#" Value="public abstract SemWeb.NamespaceManager Namespaces { set; get; }" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.NamespaceManager</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The NamespaceManager that manages namespace URIs and their prefixes.</summary>
+        <value>A NamespaceManager.</value>
+        <remarks>For some parsers, it is necessary to give a prefix for all namespaces that occur in the data model being written before the writing begins.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="SemWeb.StatementSink.Add">
+      <MemberSignature Language="C#" Value="bool StatementSink.Add (SemWeb.Statement statement);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="statement" Type="SemWeb.Statement" />
+      </Parameters>
+      <Docs>
+        <param name="statement">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="SetResourceKey">
+      <MemberSignature Language="C#" Value="protected void SetResourceKey (SemWeb.Resource resource, object value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="SemWeb.Resource" />
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="resource">A resource.</param>
+        <param name="value">A key to associate with the resource and the writer.</param>
+        <summary>See <see cref="M:SemWeb.Store.SetResourceKey(SemWeb.Resource)" />.</summary>
+        <remarks>See <see cref="M:SemWeb.Store.SetResourceKey(SemWeb.Resource)" />.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="System.IDisposable.Dispose">
+      <MemberSignature Language="C#" Value="void IDisposable.Dispose ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Write">
+      <MemberSignature Language="C#" Value="public virtual void Write (SemWeb.StatementSource source);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="source" Type="SemWeb.StatementSource" />
+      </Parameters>
+      <Docs>
+        <param name="source">A source containing statements to write.</param>
+        <summary>Writes out the contents of the StatementSource.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

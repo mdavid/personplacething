@@ -1,0 +1,227 @@
+<Type Name="RdfXmlWriter" FullName="SemWeb.RdfXmlWriter">
+  <TypeSignature Language="C#" Value="public class RdfXmlWriter : SemWeb.RdfWriter" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>SemWeb.RdfWriter</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Writes RDF statements to an RDF/XML file.</summary>
+    <remarks>
+      <para>The RdfXmlWriter buffers the entire output document in memory, before writing the document to the stream when Close is called.</para>
+      <para>The namespaces used in the output data must be registered with the NamespaceManager in the <see cref="P:SemWeb.RdfWriter.Namespaces" /> property before the first call to Add.  Failure to do so may prevent the document from being written to the stream, as not all URIs can be automatically converted into an XML qualified name.</para>
+      <example>
+        <para>The following example writes out RDF statements in RDF/XML format to a file:</para>
+        <code lang="C#">using (RdfXmlWriter output = new RdfXmlWriter("filename.rdf")) {
+    output.Namespaces.AddNamespace("http://xmlns.com/foaf/0.1/", "foaf");
+    output.BaseUri = "http://www.example.org/";
+    output.Write(datasource);
+}  </code>
+      </example>
+      <para>All constructors for the RdfXmlWriter have a couterpart with an additional parameter for a <see cref="T:SemWeb.RdfXmlWriter+Options" /> object that specifies formatting parameters for the output.  When an Options object is not used, <see cref="F:SemWeb.RdfXmlWriter+Options.Full" /> is used.  This parameter can be used with the <see cref="F:SemWeb.RdfXmlWriter+Options.XMP" /> field to ensure the resulting XML document conforms to the Adobe XMP specification.</para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.IO.TextWriter writer);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="writer" Type="System.IO.TextWriter" />
+      </Parameters>
+      <Docs>
+        <param name="writer">A TextWriter.</param>
+        <summary>Creates an RDF/XML writer that writes to the given TextWriter.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (string file);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="file" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="file">A file name, or "-" for standard output.</param>
+        <summary>Creates an RDF/XML writer that writes to the named file.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.Xml.XmlDocument dest);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="dest" Type="System.Xml.XmlDocument" />
+      </Parameters>
+      <Docs>
+        <param name="dest">A new, empty XmlDocument.</param>
+        <summary>Creates an RDF/XML writer that writes to the given XmlDocument.</summary>
+        <remarks>The document must be empty.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.Xml.XmlWriter writer);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" />
+      </Parameters>
+      <Docs>
+        <param name="writer">An XmlWriter.</param>
+        <summary>Creates an RDF/XML writer that writes to the given XmlWriter.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.IO.TextWriter writer, SemWeb.RdfXmlWriter.Options style);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="writer" Type="System.IO.TextWriter" />
+        <Parameter Name="style" Type="SemWeb.RdfXmlWriter+Options" />
+      </Parameters>
+      <Docs>
+        <param name="writer">A TextWriter.</param>
+        <param name="style">An instance of <see cref="T:SemWeb.RdfXmlWriter+Options" /> providing options for how the output document should be formatted.</param>
+        <summary>Creates an RDF/XML writer that writes to the given TextWriter with output style options.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (string file, SemWeb.RdfXmlWriter.Options style);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="file" Type="System.String" />
+        <Parameter Name="style" Type="SemWeb.RdfXmlWriter+Options" />
+      </Parameters>
+      <Docs>
+        <param name="file">A file name, or "-" for standard output.</param>
+        <param name="style">An instance of <see cref="T:SemWeb.RdfXmlWriter+Options" /> providing options for how the output document should be formatted.</param>
+        <summary>Creates an RDF/XML writer that writes to the named file with output style options.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.Xml.XmlDocument dest, SemWeb.RdfXmlWriter.Options style);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="dest" Type="System.Xml.XmlDocument" />
+        <Parameter Name="style" Type="SemWeb.RdfXmlWriter+Options" />
+      </Parameters>
+      <Docs>
+        <param name="dest">A new, empty XmlDocument.</param>
+        <param name="style">An instance of <see cref="T:SemWeb.RdfXmlWriter+Options" /> providing options for how the output document should be formatted.</param>
+        <summary>Creates an RDF/XML writer that writes to the given XmlDocument with output style options.</summary>
+        <remarks>None.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:SemWeb.RdfXmlWriter.#ctor(System.Xml.XmlDocument,SemWeb.RdfXmlWriter.Options)" />, <see cref="M:SemWeb.RdfXmlWriter.#ctor(System.Xml.XmlDocument,SemWeb.RdfXmlWriter.Options)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public RdfXmlWriter (System.Xml.XmlWriter writer, SemWeb.RdfXmlWriter.Options style);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" />
+        <Parameter Name="style" Type="SemWeb.RdfXmlWriter+Options" />
+      </Parameters>
+      <Docs>
+        <param name="writer">An XmlWriter.</param>
+        <param name="style">An instance of <see cref="T:SemWeb.RdfXmlWriter+Options" /> providing options for how the output document should be formatted.</param>
+        <summary>Creates an RDF/XML writer that writes to the given XmlWriter with output style options.</summary>
+        <remarks>None.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:SemWeb.RdfXmlWriter.#ctor(System.Xml.XmlWriter,SemWeb.RdfXmlWriter.Options)" />, <see cref="M:SemWeb.RdfXmlWriter.#ctor(System.Xml.XmlWriter,SemWeb.RdfXmlWriter.Options)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public override void Add (SemWeb.Statement statement);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="statement" Type="SemWeb.Statement" />
+      </Parameters>
+      <Docs>
+        <param name="statement">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:SemWeb.RdfXmlWriter.Add(SemWeb.Statement)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Close">
+      <MemberSignature Language="C#" Value="public override void Close ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Namespaces">
+      <MemberSignature Language="C#" Value="public override SemWeb.NamespaceManager Namespaces { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>SemWeb.NamespaceManager</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

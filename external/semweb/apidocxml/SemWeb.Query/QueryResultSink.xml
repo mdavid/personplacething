@@ -1,0 +1,112 @@
+<Type Name="QueryResultSink" FullName="SemWeb.Query.QueryResultSink">
+  <TypeSignature Language="C#" Value="public abstract class QueryResultSink" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>A class that receives the results of a query.</summary>
+    <remarks>This is an abstract base class.  <see cref="T:SemWeb.Query.SparqlXmlQuerySink" /> is an implementation that writes out the results of a query in SPARQL XML Results Format.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected QueryResultSink ();" />
+      <MemberType>Constructor</MemberType>
+      <Parameters />
+      <Docs>
+        <summary>The protected no-arg constructor used by inherited classes.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public abstract bool Add (SemWeb.Query.VariableBindings result);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="result" Type="SemWeb.Query.VariableBindings" />
+      </Parameters>
+      <Docs>
+        <param name="result">The variable bindings to values in this row.</param>
+        <summary>Called to add a new result row.</summary>
+        <returns>Return <see langword="true" /> to have the caller continue streaming results, otherwise the caller will abort the query.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="AddComments">
+      <MemberSignature Language="C#" Value="public virtual void AddComments (string comments);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="comments" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="comments">Arbitrary comments.</param>
+        <summary>Adds comments about how the query has been processed.</summary>
+        <remarks>This method may be called at any time, before, during, and after all bindings have been written.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Finished">
+      <MemberSignature Language="C#" Value="public virtual void Finished ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>This method is called by a Query object after the last variable binding is added.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Init">
+      <MemberSignature Language="C#" Value="public virtual void Init (SemWeb.Variable[] variables);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="variables" Type="SemWeb.Variable[]" />
+      </Parameters>
+      <Docs>
+        <param name="variables">An array of variables whose bindings will be reported. The order of the variables here will match that in the bindings provided in Add.</param>
+        <summary>Called by the Query to initialize the result sink.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

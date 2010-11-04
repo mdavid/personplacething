@@ -1,0 +1,56 @@
+<Type Name="ParserException" FullName="SemWeb.ParserException">
+  <TypeSignature Language="C#" Value="public class ParserException : ApplicationException" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ApplicationException</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>An exception thrown when an error occurs parsing an RDF document.</summary>
+    <remarks>None.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ParserException (string message);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="message">A text message indicating the parsing exception that occurred.</param>
+        <summary>Creates a new ParserException.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ParserException (string message, Exception cause);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="message" Type="System.String" />
+        <Parameter Name="cause" Type="System.Exception" />
+      </Parameters>
+      <Docs>
+        <param name="message">A text message indicating the parsing exception that occurred.</param>
+        <param name="cause">A thrown exception that caused the parsing exception.</param>
+        <summary>Creates a new ParserException.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,55 @@
+<Project name="semweb" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="../bin" assembly="SemWeb" />
+      <Build debugmode="True" target="Library" />
+      <Execution runwithwarnings="False" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Csc" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" definesymbols="DOTNET2" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="../bin" assembly="SemWeb" />
+      <Build debugmode="True" target="Library" />
+      <Execution runwithwarnings="False" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Csc" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" definesymbols="DOTNET2" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="./AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="./MemoryStore.cs" subtype="Code" buildaction="Compile" />
+    <File name="./N3Writer.cs" subtype="Code" buildaction="Compile" />
+    <File name="./NamespaceManager.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Query.cs" subtype="Code" buildaction="Compile" />
+    <File name="./RdfWriter.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Resource.cs" subtype="Code" buildaction="Compile" />
+    <File name="./SQLStore.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Statement.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Store.cs" subtype="Code" buildaction="Compile" />
+    <File name="./UriMap.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Util.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Algos.cs" subtype="Code" buildaction="Compile" />
+    <File name="./SparqlClient.cs" subtype="Code" buildaction="Compile" />
+    <File name="./LiteralFilters.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Euler.cs" subtype="Code" buildaction="Compile" />
+    <File name="./RDFS.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Inference.cs" subtype="Code" buildaction="Compile" />
+    <File name="./N3Reader.cs" subtype="Code" buildaction="Compile" />
+    <File name="./RdfXmlReader.cs" subtype="Code" buildaction="Compile" />
+    <File name="./RdfXmlWriter.cs" subtype="Code" buildaction="Compile" />
+    <File name="./RdfReader.cs" subtype="Code" buildaction="Compile" />
+    <File name="./Interfaces.cs" subtype="Code" buildaction="Compile" />
+    <File name="./GraphMatch.cs" subtype="Code" buildaction="Compile" />
+    <File name="./SpecialRelations.cs" subtype="Code" buildaction="Compile" />
+    <File name="./GraphVizWriter.cs" subtype="Code" buildaction="Compile" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </References>
+  <Deployment.LinuxDeployData generatePcFile="False" />
+  <DeploymentInformation strategy="File">
+    <excludeFiles />
+  </DeploymentInformation>
+</Project>

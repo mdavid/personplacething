@@ -1,0 +1,97 @@
+<Type Name="N3Reader" FullName="SemWeb.N3Reader">
+  <TypeSignature Language="C#" Value="public class N3Reader : SemWeb.RdfReader" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>SemWeb.RdfReader</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Reads RDF statements from a Notation 3 (N3, Turtle, or NTriples) stream.</summary>
+    <remarks>
+      <para>Most of the N3 specification is supported, including everything in NTriples and Turtle.  Statements are streamed as soon as they are read from the stream.</para>
+      <para>N3 formula notation with { and } is supported in the following way.  For every formula, an anonymous entity is created to represent that graph.  Every statement in the formula is imported with the <see cref="P:SemWeb.Statement.Meta" /> property set to the anonymous entity (unless it is recursively embedded in another formula, in which case it uses the innermost formula's anonymous entity).</para>
+      <example>
+        <para>The following example reads a N-Triples, Turtle, or N3 file from disk:</para>
+        <code lang="C#">using (RdfReader data = new N3Reader("filename.n3")) {
+    store.Import(data);
+}  </code>
+      </example>
+      <para>Once the document is fully read, all namespace declarations in the document are available in the <see cref="P:SemWeb.RdfReader.Namespaces" /> property and can be copied into the namespace manager of a <see cref="T:SemWeb.RdfWriter" /> using the <see cref="M:SemWeb.NamespaceManager.AddFrom(SemWeb.NamespaceManager)" /> method.</para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public N3Reader (System.IO.TextReader source);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="source" Type="System.IO.TextReader" />
+      </Parameters>
+      <Docs>
+        <param name="source">The N3 stream to read.</param>
+        <summary>Creates a new N3 parser for a stream.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public N3Reader (string sourcefile);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="sourcefile" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="sourcefile">The name of a file, or "-" to read from Console.In.</param>
+        <summary>Creates a new N3 parser for the given file.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected override void Dispose ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Select">
+      <MemberSignature Language="C#" Value="public override void Select (SemWeb.StatementSink store);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="store" Type="SemWeb.StatementSink" />
+      </Parameters>
+      <Docs>
+        <param name="store">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

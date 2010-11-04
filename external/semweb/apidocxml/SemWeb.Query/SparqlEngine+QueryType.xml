@@ -1,0 +1,73 @@
+<Type Name="SparqlEngine+QueryType" FullName="SemWeb.Query.SparqlEngine+QueryType">
+  <TypeSignature Language="C#" Value="public enum SparqlEngine.QueryType" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb.Sparql</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>The types of a SPARQL query.</summary>
+    <remarks>There are four types of SPARQL queries, each returning a different type of answer.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Ask">
+      <MemberSignature Language="C#" Value="Ask" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Query.SparqlEngine+QueryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Represents an ASK query.</summary>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Construct">
+      <MemberSignature Language="C#" Value="Construct" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Query.SparqlEngine+QueryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Represents a CONSTRUCT query.</summary>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Describe">
+      <MemberSignature Language="C#" Value="Describe" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Query.SparqlEngine+QueryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Represents a DESCRIBE query.</summary>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Select">
+      <MemberSignature Language="C#" Value="Select" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Query.SparqlEngine+QueryType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Represents a SELECT query.</summary>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,60 @@
+SemWeb Benchmarks
+=================
+
+2007-03-31 v0.85
+System: 1.8 GHz AMD single processor, 1GB RAM; Mono 1.2.3 runtime on Fedora Core 6
+Benchmark: LUBM 1.7 w/ 50 universities: 6,890,640 statements in 1000 files totalling 540M
+Loading:
+	null: 			5 min; 23k stmt/sec (just loading the data)
+	N3 file: 		9 min; 12k stmt/sec (loading and dumping back to N3 file on disk)
+	mysql-5.0.27: 	30 min; 3.8k stmt/sec; 769 MB db; 117 bytes/stmt
+	sqlite-3.3.6: 	_ min; _ stmt/sec; _GB db; _ bytes/stmt
+	postgresql-8.1:	_ min; _ stmt/sec; _GB db; _ bytes/stmt
+Querying:
+	Time includes program start-up; SQL caching is turned off.
+	RDFS reasoning is used. The MySQL backend is used.
+	I don't know whether the results of the queries are actually correct...
+	query	time (s)	notes
+	1		1.8			large input, high selectivity, no reasoning
+	3		1.9			low input, no reasoning
+	4		2.0			small input, high selectivity, subClassOf/subPropertyOf reasoning
+	5		1.8			large input, high selectivity, subClassOf/subPropertyOf reasoning
+	6		65			large input, low selectivity, no reasoning
+	7		1.8			small input, high selectivity, reasoning
+	8		4.1			large input, low selectivity, subPropertyOf reasoning
+	9		32			large input, low selectivity, reasoning
+	14		70			large input, low selectivity
+
+2006-11-26 v0.77 (pre-release)
+Same setup as below.
+Loading:
+	mysql-5.0.22: 	28min; 4,101 stmt/sec; 720MB db; 109 bytes/stmt
+Querying:
+	Time includes program start-up; there may be caching getting in the way.
+	RDFS reasoning is used.
+	query	time (s)	notes
+	1		1.7			large input, high selectivity, no reasoning
+	3		0.9			low input, no reasoning
+	4		1.2			small input, high selectivity, subClassOf/subPropertyOf reasoning
+	5		1.3			large input, high selectivity, subClassOf/subPropertyOf reasoning
+	6		~10s		large input, low selectivity, no reasoning
+	7		1.3			small input, high selectivity, reasoning
+	...
+
+2006-09-29 v0.751
+System: 1.8 GHz AMD single processor, 1GB RAM; Mono runtime on Fedora Core 5
+Benchmark: LUBM 1.7 w/ 50 universities: 6,890,640 statements in 1000 files totalling 540M
+Loading:
+	null: 			5min; 23,321 stmt/sec (just loading the data)
+	N3 file: 		10min; 10,975 stmt/sec (loading and dumping to N3 file on disk)
+	mysql-5.0.22: 	39min; 2,921 stmt/sec; 762MB db; 115 bytes/stmt
+	sqlite-3.3.3: 	72min; 1,597 stmt/sec; 1.1GB db; 162 bytes/stmt
+	postgresql-8.1:	94min; 1226 stmt/sec; 1.6GB db; 238 bytes/stmt
+Querying:
+	Time includes program start-up.
+	No reasoning is used, and so only 3 queries from the test set can be run:
+	This is pretty rough.  It might be unfairly low if things were cached between tests.
+		sqlite	mysql	postgres
+	1	5s		1.0s
+	3	9s		0.8s
+	14	1m13s	57s		21s

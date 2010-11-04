@@ -1,0 +1,705 @@
+<Type Name="Literal" FullName="SemWeb.Literal">
+  <TypeSignature Language="C#" Value="public sealed class Literal : SemWeb.Resource" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.1</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>SemWeb.Resource</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>A literal (text string) node in an RDF graph.</summary>
+    <remarks>
+      <para>Literals are string values optionally tagged with a language or datatype URI.</para>
+      <para>An explicit conversion operator is defined from strings to literals as a convenience.  The operator converts the string to a literal by returning a literal with that value, and <see langword="null" /> language and datatype.</para>
+      <example>
+        <para>The following examples create literal nodes.</para>
+        <code lang="C#">Literal thing1 = new Literal("SemWeb: The C# Library");
+Literal thing2 = (Literal)"SemWeb: The C# Library"; // explicit operator overload
+Literal thing3 = new Literal("SemWeb: The C# Library", "en", null); // with language
+Literal thing3 = new Literal("SemWeb: The C# Library", null, "http://www.w3.org/2001/XMLSchema#string"); // with datatype
+
+Console.WriteLine(thing1.Value);
+Console.WriteLine(thing2.Language);
+Console.WriteLine(thing3.DataType);</code>
+      </example>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Literal (string value);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">The value of the Literal node.</param>
+        <summary>Creates a new Literal with the given string value.</summary>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Literal (string value, string language, string dataType);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+        <Parameter Name="language" Type="System.String" />
+        <Parameter Name="dataType" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">The value of the Literal node.</param>
+        <param name="language">A language identifier, or <see langword="null" /> to leave the language unspecified.</param>
+        <param name="dataType">The URI that gives the datatype of the literal, or <see langword="null" /> to leave the specific datatype unspecified.</param>
+        <summary>Creates a new Literal with the given value, language, and datatype.</summary>
+        <remarks>A language and datatype cannot both be specified, following to the RDF standard.  An exception will be thrown if both are given.</remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:SemWeb.Literal.#ctor(System.String,System.String,System.String)" />, <see cref="M:SemWeb.Literal.#ctor(System.String,System.String,System.String)" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:SemWeb.Literal.#ctor(System.String,System.String,System.String)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="DataType">
+      <MemberSignature Language="C#" Value="public string DataType { get; }" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The datatype URI of the literal.</summary>
+        <value>The datatype URI of the literal, or <see langword="null" />.</value>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object other);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="other" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (bool value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed boolean literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (byte value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Byte" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed (unsigned) byte literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (DateTime value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.DateTime" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value whose time is in UTC.</param>
+        <summary>Returns an XSD-typed dateTime literal from the given value representing a date and UTC time.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (decimal value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Decimal" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed decimal literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (double value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed double-precision literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (short value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Int16" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed short literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (int value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed int literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (long value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Int64" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed long literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (sbyte value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.SByte" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed (signed) byte literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (float value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed floating-point literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (string value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed string literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (TimeSpan value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.TimeSpan" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed duration literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (ushort value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.UInt16" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed unsigned short literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (uint value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed unsigned int literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (ulong value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.UInt64" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed boolean literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (Uri value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Uri" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <summary>Returns an XSD-typed URI (anyURI) literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (DateTime value, bool withTime, bool isLocalTime);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.DateTime" />
+        <Parameter Name="withTime" Type="System.Boolean" />
+        <Parameter Name="isLocalTime" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">A date value, optionally with a time component.</param>
+        <param name="withTime">A boolean indicating whether <paramref name="value" /> has a time component, or else only has a date component.</param>
+        <param name="isLocalTime">A boolean value indicating whether the time component of <paramref name="value" /> is a local time, or else is a UTC time.</param>
+        <summary>Returns an XSD-typed date or dateTime literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="FromValue">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal FromValue (TimeSpan value, bool asTime, bool isLocalTime);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.TimeSpan" />
+        <Parameter Name="asTime" Type="System.Boolean" />
+        <Parameter Name="isLocalTime" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="value">A value.</param>
+        <param name="asTime">A boolean value indicating whether <paramref name="value" /> should be interpreted as a time, or else as a duration.</param>
+        <param name="isLocalTime">If <paramref name="asTime" /> is true, then <paramref name="isLocalTime" /> is a boolean value indicating whether <paramref name="value" /> is a local time, or else is a UTC time.</param>
+        <summary>Returns an XSD-typed duration or time literal from the given value.</summary>
+        <returns>A new Literal object with the indicated XSD datatype and a value in the lexical space of that datatype according to the parameters given.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Language">
+      <MemberSignature Language="C#" Value="public string Language { get; }" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The language of the literal.</summary>
+        <value>The language identifier of the literal, or <see langword="null" />.</value>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Normalize">
+      <MemberSignature Language="C#" Value="public SemWeb.Literal Normalize ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Creates a normalized form of the literal.</summary>
+        <returns>A normalized form of the literal.</returns>
+        <remarks>If this literal has a DataType recognized by the <see cref="M:SemWeb.Literal.ParseValue()" /> method, this method returns a new literal whose value is a normalized form of the value of this literal.  Otherwise, Normalize returns the literal unchanged.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="op_Explicit">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal op_Explicit (string value);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="value">The string value to convert to a Literal object.</param>
+        <summary>Converts a string to a Literal object
+        whose language and datatype are <see langword="null" />.</summary>
+        <returns>A literal object whose Value is the string,
+        and whose language and datatype are null.</returns>
+        <remarks>This is an explicit cast operator.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Parse">
+      <MemberSignature Language="C#" Value="public static SemWeb.Literal Parse (string literal, SemWeb.NamespaceManager namespaces);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>SemWeb.Literal</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="literal" Type="System.String" />
+        <Parameter Name="namespaces" Type="SemWeb.NamespaceManager" />
+      </Parameters>
+      <Docs>
+        <param name="literal">An N3-encoded form of a literal.</param>
+        <param name="namespaces">A namespace manager used to resolve the literal's datatype, if present, or <see langword="null" />.</param>
+        <summary>Parses a literal value.</summary>
+        <returns>A Literal object.</returns>
+        <remarks>
+          <para>The encoded literal must be in the form of:   "value"[@langcode | ^^datatypeURI].</para>
+          <para>If <paramref name="namespaces" /> is <see langword="null" /> and a datatype was provided as a QName, or if the QName prefix was not found in the namespace manager, an ArgumentException is thrown.</para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:SemWeb.Literal.Parse(System.String,SemWeb.NamespaceManager)" /></exception>
+        <exception cref="T:System.FormatException">To be added; from: <see cref="M:SemWeb.Literal.Parse(System.String,SemWeb.NamespaceManager)" />, <see cref="M:SemWeb.Literal.Parse(System.String,SemWeb.NamespaceManager)" /></exception>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="ParseValue">
+      <MemberSignature Language="C#" Value="public object ParseValue ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Gets a native .NET type for the literl value using a XSD DataType.</summary>
+        <returns>A string, boolean, integer, or other value, as described below.</returns>
+        <remarks>
+          <para>If the DataType of the literal is not set, or if the DataType is not one of the following recognized types, the literal's string value is returned.</para>
+          <para>The recognized types below are all in the <c>http://www.w3.org/2001/XMLSchema#</c> namespace.  That is, where it says "string" below, it means the DataType is <c>http://www.w3.org/2001/XMLSchema#string</c>.</para>
+          <list type="table">
+            <listheader>
+              <term>DataType(s)</term>
+              <description>Return Value</description>
+            </listheader>
+            <item>
+              <term>string, normalizedString, anyURI</term>
+              <description>The literal's value, as a <see cref="T:System.String" />.</description>
+            </item>
+            <item>
+              <term>boolean</term>
+              <description>A <see cref="T:System.Boolean" />, true if the literal's value is "true" or "1", false otherwise.</description>
+            </item>
+            <item>
+              <term>decimal, integer, positiveInteger, nonPositiveInteger, negativeInteger, nonNegativeInteger</term>
+              <description>The literal's value as a <see cref="T:System.Decimal" /> using <see cref="M:System.Decimal.Parse(string)" />.</description>
+            </item>
+            <item>
+              <term>float or double</term>
+              <description>The literal's value as a <see cref="T:System.Single" /> for float or <see cref="T:System.Double" /> for double, using the appropriate Parse method.</description>
+            </item>
+            <item>
+              <term>duration</term>
+              <description>The literal's value as a <see cref="T:System.TimeSpan" /> using <see cref="M:System.TimeSpan.Parse(string)" />.</description>
+            </item>
+            <item>
+              <term>dateTime, date, time</term>
+              <description>The literal's value as a <see cref="T:SemWeb.XsdDateTime" />.</description>
+            </item>
+            <item>
+              <term>long, int, short, byte</term>
+              <description>The literal's value as a <see cref="T:System.Int64" />, <see cref="T:System.Int32" />, <see cref="T:System.Int16" />, or <see cref="T:System.SByte" /> using the appropriate Parse method.</description>
+            </item>
+            <item>
+              <term>unsignedLong, unsignedInt, unsignedShort, unsignedByte</term>
+              <description>The literal's value as a <see cref="T:System.UInt64" />, <see cref="T:System.UInt32" />, <see cref="T:System.UInt16" />, or <see cref="T:System.Byte" /> using the appropriate Parse method.</description>
+            </item>
+          </list>
+        </remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Uri">
+      <MemberSignature Language="C#" Value="public override string Uri { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Value">
+      <MemberSignature Language="C#" Value="public string Value { get; }" />
+      <MemberType>Property</MemberType>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The value of the literal.</summary>
+        <value>The string value of the literal.</value>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

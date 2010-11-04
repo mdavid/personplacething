@@ -1,0 +1,138 @@
+<Type Name="SelectableSource" FullName="SemWeb.SelectableSource">
+  <TypeSignature Language="C#" Value="public interface SelectableSource : SemWeb.StatementSource" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>SemWeb.StatementSource</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>An interface implemented by RDF sources that supports Select operations.</summary>
+    <remarks>Classes that implement this interface support the <see cref="M:SemWeb.SelectableSource.Contains(SemWeb.Statement)" /> which returns whether any statement matches the given statement template, and <see cref="M:SemWeb.SelectableSource.Select(SemWeb.Statement,SemWeb.StatementSink)" /> and <see cref="M:SemWeb.SelectableSource.Select(SemWeb.SelectFilter,SemWeb.StatementSink)" />.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (SemWeb.Resource resource);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="resource" Type="SemWeb.Resource" />
+      </Parameters>
+      <Docs>
+        <param name="resource">A Resource (an entity, bnode, or literal value).</param>
+        <summary>Tests whether a resource is mentioned in the data source.</summary>
+        <returns>A boolean value indicating whether the resource is mentioned in the store.</returns>
+        <remarks>None.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (SemWeb.Statement template);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="template" Type="SemWeb.Statement" />
+      </Parameters>
+      <Docs>
+        <param name="template">The statement to search for, or a statement template.</param>
+        <summary>Returns whether the store contains a statement, or any
+statement that matches the template.</summary>
+        <returns>
+          <see langword="true" /> if the store contains the statement or
+any statement matching the template.</returns>
+        <remarks>
+          <example>
+            <para>The following expression tests for the existence of any rdf:type predicate in the store.</para>
+            <code lang="C#">store.Contains(new Statement(null, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", null));  </code>
+          </example>
+        </remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Select">
+      <MemberSignature Language="C#" Value="public void Select (SemWeb.SelectFilter filter, SemWeb.StatementSink sink);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="filter" Type="SemWeb.SelectFilter" />
+        <Parameter Name="sink" Type="SemWeb.StatementSink" />
+      </Parameters>
+      <Docs>
+        <param name="filter">A filter specifying what statements to return.</param>
+        <param name="sink">A StatementSink to which each matching statement will be added.</param>
+        <summary>Queries the story for matching statements, with advanced options, and writes the statements to a <see cref="T:SemWeb.StatementSink" />.</summary>
+        <remarks>
+          <para>This overload of Select is used to query for statements matching many resources.</para>
+          <example>
+            <para>The following expression writes out all statements with either of two entities as the subject.</para>
+            <code lang="C#">Entity a = "http://www.example.org/entityA";
+Entity b = "http://www.example.org/entityB";
+
+using (StatementSink sink = new N3Writer(Console.Out)) {
+    store.Select(
+        new SelectFilter(new Entity[] { a , b }, null, null),
+        sink);
+}</code>
+          </example>
+        </remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Select">
+      <MemberSignature Language="C#" Value="public void Select (SemWeb.Statement template, SemWeb.StatementSink sink);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="template" Type="SemWeb.Statement" />
+        <Parameter Name="sink" Type="SemWeb.StatementSink" />
+      </Parameters>
+      <Docs>
+        <param name="template">A statement template.  Use <see cref="F:SemWeb.Statement.All" /> to select all statements in the store, or a statement with <see langword="null" /> fields to select statements that match the non-<see langword="null" /> parts of the statement.</param>
+        <param name="sink">A StatementSink to which each matching statement will be added.</param>
+        <summary>Queries the story for matching statements, and writes the statements to a <see cref="T:SemWeb.StatementSink" />.</summary>
+        <remarks>
+          <para>Each statement in the store matching <paramref name="template" /> is added to <paramref name="sink" /> with a call to <see cref="M:SemWeb.StatementSink.Add(SemWeb.Statement)" />.  If the call to Add returns <see langword="false" />, the select operation is aborted and returns immediately.</para>
+          <para>
+            <paramref name="template" /> is a statement template, which means any field in <paramref name="template" /> may be <see langword="null" />, and those fields are excluded from the statement filter. For example, setting the Subject and Predicate fields but leaving the Object and Meta fields <see langword="null" /> will match all statements in the store that have the given Subject and Predicate, and anything in their Object and Meta fields.</para>
+          <example>
+            <para>The following expression writes out all statements with the <c>rdf:type</c> predicate to standard output.</para>
+            <code lang="C#">using (StatementSink sink = new N3Writer(Console.Out)) {
+    store.Select(new Statement(null, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", null), sink);
+}</code>
+          </example>
+        </remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>

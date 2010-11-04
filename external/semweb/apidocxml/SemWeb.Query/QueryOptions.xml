@@ -1,0 +1,148 @@
+<Type Name="QueryOptions" FullName="SemWeb.Query.QueryOptions">
+  <TypeSignature Language="C#" Value="public struct QueryOptions" />
+  <AssemblyInfo>
+    <AssemblyName>SemWeb</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.6.2</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>A structure specifying options for carrying out a query.</summary>
+    <remarks>It is usually sufficient to pass <c>new QueryOptions()</c>  to the options parameter of MetaQuery and Query methods of QueryableSources.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AddDistinguishedVariable">
+      <MemberSignature Language="C#" Value="public void AddDistinguishedVariable (SemWeb.Variable variable);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="variable" Type="SemWeb.Variable" />
+      </Parameters>
+      <Docs>
+        <param name="variable">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="AddLiteralFilter">
+      <MemberSignature Language="C#" Value="public void AddLiteralFilter (SemWeb.Variable variable, SemWeb.LiteralFilter filter);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="variable" Type="SemWeb.Variable" />
+        <Parameter Name="filter" Type="SemWeb.LiteralFilter" />
+      </Parameters>
+      <Docs>
+        <param name="variable">To be added.</param>
+        <param name="filter">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="DistinguishedVariables">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.ICollection&lt;SemWeb.Variable&gt; DistinguishedVariables;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.ICollection&lt;SemWeb.Variable&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="Limit">
+      <MemberSignature Language="C#" Value="public int Limit;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="SetVariableKnownValues">
+      <MemberSignature Language="C#" Value="public void SetVariableKnownValues (SemWeb.Variable variable, System.Collections.Generic.ICollection&lt;SemWeb.Resource&gt; knownValues);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="variable" Type="SemWeb.Variable" />
+        <Parameter Name="knownValues" Type="System.Collections.Generic.ICollection&lt;SemWeb.Resource&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="variable">To be added.</param>
+        <param name="knownValues">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="VariableKnownValues">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;SemWeb.Variable,System.Collections.Generic.ICollection&lt;SemWeb.Resource&gt;&gt; VariableKnownValues;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;SemWeb.Variable,System.Collections.Generic.ICollection&lt;SemWeb.Resource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+    <Member MemberName="VariableLiteralFilters">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IDictionary&lt;SemWeb.Variable,System.Collections.Generic.ICollection&lt;SemWeb.LiteralFilter&gt;&gt; VariableLiteralFilters;" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IDictionary&lt;SemWeb.Variable,System.Collections.Generic.ICollection&lt;SemWeb.LiteralFilter&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.6.2</AssemblyVersion>
+        <AssemblyVersion>1.0.7.0</AssemblyVersion>
+      </AssemblyInfo>
+    </Member>
+  </Members>
+</Type>
